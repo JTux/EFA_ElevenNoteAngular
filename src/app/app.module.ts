@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { MatToolbarModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 
@@ -10,7 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
