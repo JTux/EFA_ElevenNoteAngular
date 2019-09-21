@@ -1,0 +1,31 @@
+<h1>Details</h1>
+<hr />
+
+<div *ngIf="note">
+	<div>
+		<label>Category: </label>
+		<span>{{note.CategoryName}}</span>
+	</div>
+	<div>
+		<label>Title: </label>
+		<span>{{note.Title}}</span>
+	</div>
+	<div>
+		<label>Content: </label>
+		<span>{{note.Content}}</span>
+	</div>
+	<div>
+		<label>Important: </label>
+		<span>{{note.IsStarred}}</span>
+	</div>
+	<div>
+		<label>Created: </label>
+		<span>{{note.CreatedUtc | date:'medium'}}</span>
+	</div>
+	<div>
+		<label>Last Modified: </label>
+		<span>{{note.ModifiedUtc | date:'medium'}}</span>
+	</div>
+</div>
+<button mat-button color="accent">Edit</button>
+<button mat-button color="primary" routerLink="/note">Back to List</button>

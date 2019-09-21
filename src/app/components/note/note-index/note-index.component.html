@@ -1,4 +1,4 @@
-<h1>Index</h1>
+<h1>Your Notes</h1>
 <a mat-raised-button color="primary" routerLink="create">Create New</a>
 <hr />
 
@@ -9,7 +9,9 @@
 
 		<ng-container matColumnDef="details">
 			<mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
-			<mat-cell *matCellDef="let note"><i class="material-icons">library_books</i></mat-cell>
+			<mat-cell *matCellDef="let note">
+				<i class="material-icons" routerLink="/note/detail/{{note.NoteId}}">library_books</i>
+			</mat-cell>
 		</ng-container>
 		<ng-container matColumnDef="Title">
 			<mat-header-cell *matHeaderCellDef class="matColumnSize">Title</mat-header-cell>

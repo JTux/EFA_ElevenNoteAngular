@@ -15,6 +15,10 @@ export class NoteService {
     return this._http.get(`${Api_Url}/api/note`, { headers: this.getHeaders() });
   }
 
+  getNoteById(id) {
+    return this._http.get(`${Api_Url}/api/note/${id}`, { headers: this.getHeaders() });
+  }
+
   createNote(note: Note) {
     return this._http.post(`${Api_Url}/api/note`, note, { headers: this.getHeaders() });
   }
