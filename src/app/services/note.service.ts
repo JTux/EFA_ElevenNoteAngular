@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Note } from '../models/Note';
 
 const Api_Url = 'https://localhost:44383';
 
@@ -12,6 +13,10 @@ export class NoteService {
 
   getNotes() {
     return this._http.get(`${Api_Url}/api/note`, { headers: this.getHeaders() });
+  }
+
+  createNote(note: Note) {
+    return this._http.post(`${Api_Url}/api/note`, note, { headers: this.getHeaders() });
   }
 
   toggleStar(id) {
