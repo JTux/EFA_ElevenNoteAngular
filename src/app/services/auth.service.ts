@@ -35,18 +35,18 @@ export class AuthService {
       return new Observable(observer => observer.next(false));
     }
 
-    return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: this.setHeaders() });
+    return this._http.get(`${Api_Url}/api/Account/UserInfo`, { headers: this.getHeaders() });
   }
 
   logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
 
-    this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.setHeaders() });
+    this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.getHeaders() });
     this._router.navigate(['/login']);
   }
 
-  private setHeaders(): HttpHeaders {
+  private getHeaders(): HttpHeaders {
     return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
   }
 }

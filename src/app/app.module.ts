@@ -8,7 +8,8 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -16,11 +17,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthService } from './services/auth.service';
+import { NoteService } from './services/note.service';
 import { LoginComponent } from './components/login/login.component';
+import { NoteIndexComponent } from './components/note/note-index/note-index.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'note', component: NoteIndexComponent },
   { path: '**', component: RegistrationComponent }
 ]
 
@@ -29,7 +33,8 @@ const routes = [
     AppComponent,
     HeaderComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    NoteIndexComponent
   ],
   imports: [
     BrowserModule,
@@ -41,10 +46,12 @@ const routes = [
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    NoteService
   ],
   bootstrap: [AppComponent]
 })

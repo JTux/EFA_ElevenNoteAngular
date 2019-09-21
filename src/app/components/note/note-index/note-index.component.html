@@ -1,0 +1,43 @@
+<h1>Index</h1>
+<a mat-raised-button color="primary">Create New</a>
+<hr />
+
+<div>
+	<mat-table [dataSource]='dataSource'>
+		<mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+		<ng-container matColumnDef="details">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+			<mat-cell *matCellDef="let note"><i class="material-icons">library_books</i></mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Title">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Title</mat-header-cell>
+			<mat-cell *matCellDef="let note">{{note.Title}}</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="IsStarred">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Important</mat-header-cell>
+			<mat-cell *matCellDef="let note">
+				<span (click)="toggleImportant(note.NoteId); note.IsStarred = !note.IsStarred">
+					<i class="material-icons" *ngIf="note.IsStarred; else star_border">star</i>
+					<ng-template #star_border><i class="material-icons">star_border</i></ng-template>
+				</span>
+			</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="CategoryName">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Category</mat-header-cell>
+			<mat-cell *matCellDef="let note">{{note.CategoryName}}</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="CreatedUtc">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Creation Date</mat-header-cell>
+			<mat-cell *matCellDef="let note">{{note.CreatedUtc | date: 'fullDate'}}</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="buttons">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Options</mat-header-cell>
+			<mat-cell *matCellDef="let note">
+				<i class="material-icons">edit</i>
+				<i class="material-icons">delete</i>
+			</mat-cell>
+		</ng-container>
+	</mat-table>
+</div>
