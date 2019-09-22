@@ -68,7 +68,8 @@ const routes = [
   ],
   providers: [
     AuthService,
-    NoteService
+    NoteService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

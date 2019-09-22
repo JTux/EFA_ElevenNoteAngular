@@ -26,6 +26,7 @@ export class AuthService {
       this.userInfo = token;
       localStorage.setItem('id_token', token.access_token);
       this.isLoggedIn.next(true);
+      localStorage.setItem('isLoggedIn', 'true');
       this._router.navigate(['/']);
     });
   }
@@ -41,6 +42,7 @@ export class AuthService {
   logout() {
     localStorage.clear();
     this.isLoggedIn.next(false);
+    localStorage.removeItem('isLoggedIn');
 
     this._http.post(`${Api_Url}/api/Account/Logout`, { headers: this.getHeaders() });
     this._router.navigate(['/login']);
