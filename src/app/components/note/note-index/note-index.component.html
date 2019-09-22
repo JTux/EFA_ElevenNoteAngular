@@ -20,7 +20,7 @@
 		<ng-container matColumnDef="IsStarred">
 			<mat-header-cell *matHeaderCellDef class="matColumnSize">Important</mat-header-cell>
 			<mat-cell *matCellDef="let note">
-				<span (click)="toggleImportant(note.NoteId); note.IsStarred = !note.IsStarred">
+				<span class="star-toggle" (click)="toggleImportant(note.NoteId); note.IsStarred = !note.IsStarred">
 					<i class="material-icons" *ngIf="note.IsStarred; else star_border">star</i>
 					<ng-template #star_border><i class="material-icons">star_border</i></ng-template>
 				</span>
@@ -37,7 +37,7 @@
 		<ng-container matColumnDef="buttons">
 			<mat-header-cell *matHeaderCellDef class="matColumnSize">Options</mat-header-cell>
 			<mat-cell *matCellDef="let note">
-				<i class="material-icons">edit</i>
+				<i class="material-icons" routerLink="/note/edit/{{note.NoteId}}">edit</i>
 				<i class="material-icons">delete</i>
 			</mat-cell>
 		</ng-container>

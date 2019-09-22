@@ -21,5 +21,4 @@ export class NoteDetailComponent implements OnInit {
       });
     });
   }
-
 }

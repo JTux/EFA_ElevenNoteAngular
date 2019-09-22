@@ -26,6 +26,6 @@
 		<label>Last Modified: </label>
 		<span>{{note.ModifiedUtc | date:'medium'}}</span>
 	</div>
+	<button mat-button color="accent" routerLink="/note/edit/{{note.NoteId}}">Edit</button>
 </div>
-<button mat-button color="accent">Edit</button>
 <button mat-button color="primary" routerLink="/note">Back to List</button>
