@@ -24,12 +24,13 @@ import { NoteCreateComponent } from './components/note/note-create/note-create.c
 import { NoteDetailComponent } from './components/note/note-detail/note-detail.component';
 import { NoteEditComponent } from './components/note/note-edit/note-edit.component';
 import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
   {
-    path: 'note', children: [
+    path: 'note', canActivate: [AuthGuard], children: [
       { path: '', component: NoteIndexComponent },
       { path: 'create', component: NoteCreateComponent },
       { path: 'detail/:id', component: NoteDetailComponent },
