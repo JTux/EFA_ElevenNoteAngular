@@ -23,6 +23,7 @@ import { NoteIndexComponent } from './components/note/note-index/note-index.comp
 import { NoteCreateComponent } from './components/note/note-create/note-create.component';
 import { NoteDetailComponent } from './components/note/note-detail/note-detail.component';
 import { NoteEditComponent } from './components/note/note-edit/note-edit.component';
+import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -32,10 +33,11 @@ const routes = [
       { path: '', component: NoteIndexComponent },
       { path: 'create', component: NoteCreateComponent },
       { path: 'detail/:id', component: NoteDetailComponent },
-      { path: 'edit/:id', component: NoteEditComponent }
+      { path: 'edit/:id', component: NoteEditComponent },
+      { path: 'delete/:id', component: NoteDeleteComponent }
     ]
   },
-  { path: '**', component: RegistrationComponent }
+  { path: '**', component: NoteIndexComponent }
 ]
 
 @NgModule({
@@ -47,7 +49,8 @@ const routes = [
     NoteIndexComponent,
     NoteCreateComponent,
     NoteDetailComponent,
-    NoteEditComponent
+    NoteEditComponent,
+    NoteDeleteComponent
   ],
   imports: [
     BrowserModule,

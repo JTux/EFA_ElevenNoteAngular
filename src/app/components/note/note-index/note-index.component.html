@@ -38,7 +38,7 @@
 			<mat-header-cell *matHeaderCellDef class="matColumnSize">Options</mat-header-cell>
 			<mat-cell *matCellDef="let note">
 				<i class="material-icons" routerLink="/note/edit/{{note.NoteId}}">edit</i>
-				<i class="material-icons">delete</i>
+				<i class="material-icons" routerLink="/note/delete/{{note.NoteId}}">delete</i>
 			</mat-cell>
 		</ng-container>
 	</mat-table>
