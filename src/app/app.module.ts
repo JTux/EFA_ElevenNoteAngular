@@ -30,6 +30,7 @@ import { CategoryIndexComponent } from './components/category/category-index/cat
 import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
 import { CategoryDetailComponent } from './components/category/category-detail/category-detail.component';
 import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
+import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -48,7 +49,8 @@ const routes = [
       { path: '', component: CategoryIndexComponent },
       { path: 'create', component: CategoryCreateComponent },
       { path: 'detail/:id', component: CategoryDetailComponent },
-      { path: 'edit/:id', component: CategoryEditComponent }
+      { path: 'edit/:id', component: CategoryEditComponent },
+      { path: 'delete/:id', component: CategoryDeleteComponent }
     ]
   },
   { path: '**', component: LoginComponent }
@@ -68,7 +70,8 @@ const routes = [
     CategoryIndexComponent,
     CategoryCreateComponent,
     CategoryDetailComponent,
-    CategoryEditComponent
+    CategoryEditComponent,
+    CategoryDeleteComponent
   ],
   imports: [
     BrowserModule,
