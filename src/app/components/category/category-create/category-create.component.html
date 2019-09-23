@@ -1,0 +1,12 @@
+<h1>Create New Category</h1>
+<hr />
+
+<form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+	<div>
+		<mat-form-field>
+			<input matInput placeholder="Category Name" formControlName="Name" type="text" required />
+		</mat-form-field>
+	</div>
+	<button mat-raised-button class="nav-btn" color="primary" type="submit">Create Category</button>
+</form>
+<a mat-button routerLink="/category">Back to List</a>

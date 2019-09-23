@@ -26,6 +26,7 @@ import { NoteEditComponent } from './components/note/note-edit/note-edit.compone
 import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
 import { AuthGuard } from './guards/auth.guard';
 import { CategoryIndexComponent } from './components/category/category-index/category-index.component';
+import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -41,7 +42,8 @@ const routes = [
   },
   {
     path: 'category', canActivate: [AuthGuard], children: [
-      { path: '', component: CategoryIndexComponent }
+      { path: '', component: CategoryIndexComponent },
+      { path: 'create', component: CategoryCreateComponent }
     ]
   },
   { path: '**', component: LoginComponent }
@@ -58,7 +60,8 @@ const routes = [
     NoteDetailComponent,
     NoteEditComponent,
     NoteDeleteComponent,
-    CategoryIndexComponent
+    CategoryIndexComponent,
+    CategoryCreateComponent
   ],
   imports: [
     BrowserModule,
