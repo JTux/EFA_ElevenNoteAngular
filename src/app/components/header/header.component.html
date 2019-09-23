@@ -3,6 +3,7 @@
 	<span class="flex-filler"></span>
 	<div *ngIf="isLoggedIn">
 		<button mat-button class="nav-btn" routerLink="/note">Notes</button>
+		<button mat-button class="nav-btn" routerLink="/category">Categories</button>
 		<button mat-button class="nav-btn" (click)="onLogout()">Logout</button>
 	</div>
 	<div *ngIf="!isLoggedIn">
