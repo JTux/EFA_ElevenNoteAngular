@@ -29,6 +29,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { CategoryIndexComponent } from './components/category/category-index/category-index.component';
 import { CategoryCreateComponent } from './components/category/category-create/category-create.component';
 import { CategoryDetailComponent } from './components/category/category-detail/category-detail.component';
+import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -46,7 +47,8 @@ const routes = [
     path: 'category', canActivate: [AuthGuard], children: [
       { path: '', component: CategoryIndexComponent },
       { path: 'create', component: CategoryCreateComponent },
-      { path: 'detail/:id', component: CategoryDetailComponent }
+      { path: 'detail/:id', component: CategoryDetailComponent },
+      { path: 'edit/:id', component: CategoryEditComponent }
     ]
   },
   { path: '**', component: LoginComponent }
@@ -65,7 +67,8 @@ const routes = [
     NoteDeleteComponent,
     CategoryIndexComponent,
     CategoryCreateComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    CategoryEditComponent
   ],
   imports: [
     BrowserModule,
