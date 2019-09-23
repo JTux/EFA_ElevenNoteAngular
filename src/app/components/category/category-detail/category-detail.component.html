@@ -1,0 +1,11 @@
+<h1>Details</h1>
+<hr/>
+
+<div *ngIf="category">
+	<div>
+		<label>Name: </label>
+		<span>{{category.Name}}</span>
+	</div>
+	<button *ngIf="category.IsUserOwned" mat-button color="accent" routerLink="/category/edit/{{category.CategoryId}}">Edit</button>
+</div>
+<button mat-button color="primary" routerLink="/category">Back to List</button>
