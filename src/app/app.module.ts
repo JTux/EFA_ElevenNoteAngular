@@ -25,6 +25,7 @@ import { NoteDetailComponent } from './components/note/note-detail/note-detail.c
 import { NoteEditComponent } from './components/note/note-edit/note-edit.component';
 import { NoteDeleteComponent } from './components/note/note-delete/note-delete.component';
 import { AuthGuard } from './guards/auth.guard';
+import { CategoryIndexComponent } from './components/category/category-index/category-index.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -38,7 +39,12 @@ const routes = [
       { path: 'delete/:id', component: NoteDeleteComponent }
     ]
   },
-  { path: '**', component: NoteIndexComponent }
+  {
+    path: 'category', canActivate: [AuthGuard], children: [
+      { path: '', component: CategoryIndexComponent }
+    ]
+  },
+  { path: '**', component: LoginComponent }
 ]
 
 @NgModule({
@@ -51,7 +57,8 @@ const routes = [
     NoteCreateComponent,
     NoteDetailComponent,
     NoteEditComponent,
-    NoteDeleteComponent
+    NoteDeleteComponent,
+    CategoryIndexComponent
   ],
   imports: [
     BrowserModule,

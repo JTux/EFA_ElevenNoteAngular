@@ -1,0 +1,30 @@
+<h1>Available Categories</h1>
+<a mat-raised-button color="primary" routerLink="create">Create New</a>
+<hr />
+
+<div>
+	<mat-table [dataSource]="dataSource">
+		<mat-header-row *matHeaderRowDef="columnNames"></mat-header-row>
+		<mat-row *matRowDef="let row; columns: columnNames;"></mat-row>
+
+		<ng-container matColumnDef="details">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Details</mat-header-cell>
+			<mat-cell *matCellDef="let category">
+				<i class="material-icons" routerLink="/category/detail/{{category.CategoryId}}">library_books</i>
+			</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="Name">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize">Category Name</mat-header-cell>
+			<mat-cell *matCellDef="let category">{{category.Name}}</mat-cell>
+		</ng-container>
+		<ng-container matColumnDef="buttons">
+			<mat-header-cell *matHeaderCellDef class="matColumnSize"></mat-header-cell>
+			<mat-cell *matCellDef="let category">
+				<span *ngIf="category.IsUserOwned">
+					<i class="material-icons" routerLink="/category/edit/{{category.CategoryId}}">edit</i>
+					<i class="material-icons" routerLink="/category/delete/{{category.CategoryId}}">delete</i>
+				</span>
+			</mat-cell>
+		</ng-container>
+	</mat-table>
+</div>
