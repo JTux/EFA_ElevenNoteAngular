@@ -31,6 +31,7 @@ import { CategoryCreateComponent } from './components/category/category-create/c
 import { CategoryDetailComponent } from './components/category/category-detail/category-detail.component';
 import { CategoryEditComponent } from './components/category/category-edit/category-edit.component';
 import { CategoryDeleteComponent } from './components/category/category-delete/category-delete.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes = [
   { path: 'register', component: RegistrationComponent },
@@ -53,7 +54,7 @@ const routes = [
       { path: 'delete/:id', component: CategoryDeleteComponent }
     ]
   },
-  { path: '**', component: LoginComponent }
+  { path: '**', component: HomeComponent }
 ]
 
 @NgModule({
@@ -71,7 +72,8 @@ const routes = [
     CategoryCreateComponent,
     CategoryDetailComponent,
     CategoryEditComponent,
-    CategoryDeleteComponent
+    CategoryDeleteComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

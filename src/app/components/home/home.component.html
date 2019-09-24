@@ -1,0 +1,24 @@
+<h1>Welcome to Eleven Note</h1>
+
+<div *ngIf="isLoggedIn(); else loggedOut" class="home-options">
+	<a routerLink="/note" class="option">
+		<h2>Notes</h2>
+		<p>Click here to create new or view existing notes!</p>
+	</a>
+	<a routerLink="/category" class="option">
+		<h2>Categories</h2>
+		<p>Click here to create new or view existing categories!</p>
+	</a>
+</div>
+<ng-template #loggedOut>
+	<div class="home-options">
+		<a routerLink="/register" class="option">
+			<h2>Register</h2>
+			<p>Click here to register a new account!</p>
+		</a>
+		<a routerLink="/login" class="option">
+			<h2>Login</h2>
+			<p>Click here to create an account to start recording notes!</p>
+		</a>
+	</div>
+</ng-template>
